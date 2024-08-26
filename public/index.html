@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+   
+        <nav class="nav-bar" onclick="closeside()">
+            <div class="left-nav">
+                <a href="javascript:void(0)"class="open-sidebar">&#9776</a>
+                <a href="index.html"class="home">Home</a>
+            </div>
+            <div class="center-nav">
+                <h2 class="heading">Book Rentals</h2>
+            </div>
+            <div class="right-nav">
+                <a href="javascript:void(0)" class="search-icon" onclick="openinput()">Search</a>
+            </div>
+        </nav>
+        <div class="search">
+            <select id="authorOrName" name="aon" oninput="aontoggle()">
+                <option value="name">Book name</option>
+                <option value="author">Author</option>
+            </select>
+        <input type="text" placeholder="search here" name="search" class="searching" oninput="setNameAuthor(this.value)">
+        </div>
+        <div class="sidebar">
+            <h2 class="sidebar-heading">Apply Filters</h2>
+                    <div class="slidecontainer minbar" >
+                        <h5 class="range-heading">Min Fee : &#8377
+                            <span id="min-value">70</span>
+                        </h5>
+                        <input onChange="rangeSlide(this.value,'min')" type="range" min="70" max="130" value="0" class="slider minSlider" id="myRange">
+                        
+                        <h5 class="range-heading" >Max Fee : &#8377
+                            <span id="max-value">130</span></h5>
+                        <input onChange="rangeSlide(this.value,'max')" type="range" min="0" max="130" value="130" class="slider maxSlider" id="myRange">
+                     </div>
+    
+            <div class="sort">
+                <a href="javascript:void(0)"  id="sort-drop" onclick="sortoptionstoggle()">
+                    Sort By
+                </a>
+                <div class="sort-list">
+                    <a href="javascript:void(0)" class="rating" onclick="selectSortBy('rating')">Rating</a>
+                    <a href="javascript:void(0)" class="available_copies" onclick="selectSortBy('available_copies')">Available Copies</a>
+                    <a href="javascript:void(0)" class="rental_fee_ascend" onclick="selectSortBy('rental_fee')">Rental Fee(less first)</a>
+                    <a href="javascript:void(0)" class="rental_fee_descend" onclick="selectSortBy('-rental_fee')">Rental Fee(more first)</a>
+                    <a href="javascript:void(0)" class="rented" onclick="selectSortBy('rented')">Rented(more first)</a>
+                </div>
+            </div>
+          
+            <div class="types">
+                    <a href="javascript:void(0)"  id="Literature" name="literature" onclick="sectionSelect('Literature'),genretoggle()">
+                        Literature
+                    </a>
+                    <div class="genre">
+                        <a href="javascript:void(0)" class="Romance" onclick="selectGenre('Romance')">Romance</a>
+                        <a href="javascript:void(0)" class="Horror" onclick="selectGenre('Horror')">Horror</a>
+                        <a href="javascript:void(0)" class="Sci-fi" onclick="selectGenre('Sci-fi')">Sci-fi</a>
+                        <a href="javascript:void(0)" class="Novel" onclick="selectGenre('Novel')">Novel</a>
+                    </div>
+            </div>
+           <div class="types">
+            <a href="javascript:void(0)"id="Physics" name="Physics" onclick="sectionSelect('Physics')" >Physics</a>
+           </div>
+           <div class="types">
+            <a href="javascript:void(0)"id="Chemistry" name="Chemistry" onclick="sectionSelect('Chemistry')">Chemistry</a>
+           </div>
+           <div class="types">
+            <a href="javascript:void(0)"id="Mathematics" name="mathematics" onclick="sectionSelect('Mathematics')">Mathematics</a>
+           </div>
+           <div class="types">
+            <a href="javascript:void(0)"id="cse" name="cse" onclick="sectionSelect('cse')">C.S.E.</a>
+        
+           </div>
+          </div>
+         
+        </div>
+        <div class="main-container" onclick="closeside()">
+        <div class="container" onclick="closeside(),closeinput()">
+            
+        
+        </div>
+        <div class="page" onclick="closeside(),closeinput()" >
+            <div class="page-no">Page 1 of 4</div>
+            <div class="btns">
+             <button class="btn" onclick="changePage(1)">1</button>
+             <button class="btn" onclick="changePage(2)">2</button>
+             <button class="btn" onclick="changePage(3)">3</button>
+             <button class="btn" onclick="changePage(4)">4</button>
+            </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="javascript.js"></script>
+</body>
+</html>
